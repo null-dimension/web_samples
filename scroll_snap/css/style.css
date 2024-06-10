@@ -1,0 +1,80 @@
+* {
+    border: 0;
+    margin: 0;
+  }
+  html {
+    box-sizing: border-box;
+  }
+  *:before,
+  *:after {
+    box-sizing: inherit;
+  }
+  body {
+    overflow: hidden;
+  }
+  .top,
+  .middle,
+  .bottom {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    font-weight: bold;
+    text-shadow: 0 0 5px #333;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #eee;
+    text-align: center;
+  }
+  .top {
+    background-image: url("../img/1.jpg");
+  }
+
+  .middle {
+    background-image: url("../img/2.jpg");
+  }
+  .bottom {
+    background-image: url("../img/3.jpg");
+  }
+  .container {
+  }
+  .sub-container {
+    background-color: rgba(0, 0, 0, 0.6);
+    box-shadow: 0 0 5px 0 #333;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .nav {
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    color: red;
+    z-index: 10;
+  }
+  .top-nav,
+  .middle-nav,
+  .bottom-nav {
+    margin: 5px 0;
+    padding: 5px 0;
+  }
+  .top-nav::before {
+  }
+  .slideIn {
+    animation-name: slideInAnime;
+    animation-duration: 1s;
+    animation-timing-function: ease-in;
+    animation-fill-mode: forwards;
+  }
+  @keyframes slideInAnime {
+    to {
+      opacity: 1;
+    }
+  }

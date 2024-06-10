@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Epic Design...</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- <div class="nav">
+      <div class="top-nav"><a href="index.html#top">Top</a></div>
+      <div class="middle-nav"><a href="#middle">Middle</a></div>
+      <div class="bottom-nav"><a href="#bottom">Bottom</a></div>
+    </div> -->
+    <div class="container">
+      <div class="top" id="top">
+        <div class="sub-container">
+          Null System is a modern day communications parent company.
+        </div>
+      </div>
+      <div class="middle" id="middle">
+        <div class="sub-container">
+          A full service digital agency built for the now. We partner with
+          clients to drive their business outcomes.
+        </div>
+      </div>
+      <div class="bottom" id="bottom">
+        <div class="sub-container">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Adipisci, quas nobis. At veritatis est impedit exercitationem voluptatibus dolorum laudantium aspernatur!
+        </div>
+      </div>
+    </div>
+    <script>
+      /*
+        let pageYoffset = window.pageYOffset;
+        window.onscroll = function(e){
+            if(e.pageY > pageYoffset)
+                window.location = "#middle";
+            else if(e.pageY < pageYoffset)
+                window.location = "#top";
+        }*/
+      let isScrolling = false;
+      window.onload = function () {
+        //document.querySelector('#bottom').scrollIntoView({behavior: 'smooth'}, function(){alert('done');});
+        window.location.hash = "#top";
+        document.querySelector(".top .sub-container").classList.add("slideIn");
+      };
+      document.addEventListener("wheel", (e) => {
+        if (!isScrolling) {
+          if (e.deltaY > 0) {
+            isScrolling = true;
+            if (window.location.hash === "#top") {
+              document
+                .querySelector("#middle")
+                .scrollIntoView({ behavior: "smooth" });
+              document
+                .querySelector(".middle .sub-container")
+                .classList.add("slideIn");
+              setTimeout(() => {
+                window.location.hash = "#middle";
+                isScrolling = false;
+              }, 500);
+            } else if (window.location.hash === "#middle") {
+              document
+                .querySelector("#bottom")
+                .scrollIntoView({ behavior: "smooth" });
+              document
+                .querySelector(".top .sub-container")
+                .classList.add("slideIn");
+              setTimeout(() => {
+                window.location.hash = "#bottom";
+                isScrolling = false;
+              }, 500);
+            } else {
+              isScrolling = false;
+            }
+          } else if (e.deltaY < 0) {
+            isScrolling = true;
+            if (window.location.hash === "#bottom") {
+              document
+                .querySelector("#middle")
+                .scrollIntoView({ behavior: "smooth" });
+              setTimeout(() => {
+                window.location.hash = "#middle";
+                isScrolling = false;
+              }, 500);
+            } else if (window.location.hash === "#middle") {
+              document
+                .querySelector("#top")
+                .scrollIntoView({ behavior: "smooth" });
+              setTimeout(() => {
+                window.location.hash = "#top";
+                isScrolling = false;
+              }, 500);
+            } else {
+              isScrolling = false;
+            }
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
